@@ -38,9 +38,5 @@ except ImportError:
     from celery import shared_task
 
     @shared_task
-    class DeliverHook:
-        def __init__():
-            pass
-
-        def __call__(self, target, payload, instance=None, hook_id=None, **kwargs):
-            _do_hook(target, payload, instance=instance, hook_id=hook_id, **kwargs)
+    def deliver_hook(target, payload, instance=None, hook_id=None, **kwargs):
+        _do_hook(target, payload, instance=instance, hook_id=hook_id, **kwargs)
